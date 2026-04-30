@@ -18,12 +18,12 @@ public record ModMetadata : AbstractModMetadata
     public override string Name { get; init; } = "Black Division [REDACTED] Home";
     public override string Author { get; init; } = "TacticalToaster";
     public override List<string>? Contributors { get; init; } = new() { };
-    public override SemanticVersioning.Version Version { get; init; } = new(1, 0, 1);
+    public override SemanticVersioning.Version Version { get; init; } = new(1, 1, 0);
     public override SemanticVersioning.Range SptVersion { get; init; } = new("~4.0.0");
     public override List<string>? Incompatibilities { get; init; }
     public override Dictionary<string, SemanticVersioning.Range>? ModDependencies { get; init; } = new()
     {
-        { "com.morebotsapi.tacticaltoaster", new SemanticVersioning.Range(">=1.0.0") },
+        { "com.morebotsapi.tacticaltoaster", new SemanticVersioning.Range(">=2.0.0") },
         { "com.wtt.commonlib", new SemanticVersioning.Range(">=2.0.0") },
         { "com.wtt.contentbackport",  new SemanticVersioning.Range(">=1.0.0") }
     };
@@ -139,8 +139,7 @@ public class BlackDivFaction(
 {
     public async Task OnLoad()
     {
-        // Create the new BlackDiv faction
-        factionService.Factions.Add("blackdiv", new Faction()
+        var blackDivFaction = new Faction()
         {
             Name = "blackdiv",
             BotTypes =
@@ -149,8 +148,12 @@ public class BlackDivFaction(
                 (WildSpawnType)848421,
                 (WildSpawnType)848422,
                 (WildSpawnType)848423
-            }
-        });
+            },
+            RevengeAfterRaids = false
+        };
+        
+        // Create the new BlackDiv faction
+        factionService.Factions.Add("blackdiv", blackDivFaction);
 
         await Task.CompletedTask;
     }
