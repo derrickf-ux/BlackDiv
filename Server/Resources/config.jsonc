@@ -3,13 +3,12 @@
     "logs": false
   },
   "spawns": {
-    "chance": 100,
-    "minTime": 0.01,
-    "maxTime": 0.1,
+    "chance": 25,
+    "minTime": 0.1,
+    "maxTime": 0.8,
     "labsGateChances": 20,
     "labsStartChance": 15,
     "huntMaps": [
-      "woods",
       "bigmap",
       "tarkovstreets",
       "shoreline",
