@@ -23,7 +23,7 @@ public record ModMetadata : AbstractModMetadata
     public override List<string>? Incompatibilities { get; init; }
     public override Dictionary<string, SemanticVersioning.Range>? ModDependencies { get; init; } = new()
     {
-        { "com.morebotsapi.tacticaltoaster", new SemanticVersioning.Range(">=1.0.0") },
+        { "com.morebotsapi.tacticaltoaster", new SemanticVersioning.Range(">=2.0.0") },
         { "com.wtt.commonlib", new SemanticVersioning.Range(">=2.0.0") },
         { "com.wtt.contentbackport",  new SemanticVersioning.Range(">=1.0.0") }
     };
