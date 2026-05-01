@@ -4,6 +4,8 @@ using BepInEx.Logging;
 using BlackDiv.Patches;
 using System;
 using System.Collections.Generic;
+using EFT;
+using MoreBotsAPI.Components;
 
 namespace BlackDiv
 {
@@ -25,6 +27,16 @@ namespace BlackDiv
             //new BotsControllerInitPatch().Enable();
             new BDNvgPatch().Enable();
 
+            var bdEnums = new List<int> { 848421 }
+                .ConvertAll(x => (WildSpawnType)x);
+            
+            MonoBehaviourSingleton<HuntManager>.Instance.AddHuntRoles(bdEnums, [WildSpawnType.pmcUSEC, WildSpawnType.pmcBEAR]);
+            
+            MonoBehaviourSingleton<HuntManager>.Instance.AddHuntSides(bdEnums, new List<EPlayerSide>()
+            { 
+                EPlayerSide.Usec,
+                EPlayerSide.Bear,
+            });
         }
     }
 }
