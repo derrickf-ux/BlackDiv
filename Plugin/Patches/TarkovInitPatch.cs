@@ -21,7 +21,8 @@ namespace BlackDiv.Patches
             var brainList = new List<string>() { "PMC", "ExUsec", "Assault", "PmcUsec", "PmcBear", "PmcUSEC", "PmcBEAR" };
             var typesList = new List<int>() { 848420, 848421, 848422, 848423, 848424 }.ConvertAll(x => (WildSpawnType)x);
 
-            BrainManager.AddCustomLayer(typeof(HuntTargetLayer), brainList, 5, typesList);
+            BrainManager.AddCustomLayer(typeof(HuntTargetLayer), brainList, 10, typesList);
+            BrainManager.RemoveLayers(["AdvAssaultTarget"], brainList, typesList);
         }
     }
 }

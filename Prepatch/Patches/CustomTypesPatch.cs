@@ -26,7 +26,7 @@ namespace BlackDiv.Prepatch
                 "StationaryWS"
             };
 
-            int baseBrainInt = 24;//9;
+            int baseBrainInt = 9;//9;
 
             // lead
             var bot = new CustomWildSpawnType(848420, "blackDivLead", "BlackDiv", baseBrainInt, true, true, false);
